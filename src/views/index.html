@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="title" content="Ooyala Ingestion API Demo">
+    <meta name="description" content="Ooyala Ingestion API Demo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ooyala Ingestion API Demo</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons|Montserrat">
+    <link rel="stylesheet" href="//code.getmdl.io/1.3.0/material.min.css">
+    <link rel="stylesheet" href="/styles/app.css">
+    <script defer src="//code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body>
+    <div class="mdl-layout__container" id="myoo-app">
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer">
+        <header class="myoo-header mdl-layout__header mdl-layout__header--waterfall">
+          <div class="mdl-layout__header-row">
+            <a href="https://www.ooyala.com" target="_blank">
+              <span class="myoo-header__title mdl-layout-title">
+                <p class="myoo-header__title--logo" />
+              </span>
+            </a>
+            <div class="mdl-layout-spacer"></div>
+            <div class="myoo-navigation-container">
+              <div class="myoo-navigation mdl-navigation">
+                <a class="mdl-navigation__link" href="http://support.ooyala.com">
+                  <span class="myoo-sprite__search">search</span>
+                  <span class="myoo-display__sp--none">Serch</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="myoo-drawer mdl-layout__drawer">
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="/">Home</a>
+            <a class="mdl-navigation__link" href="https://backlot.ooyala.com" target="_blank">Ooyala Backlot</a>
+          </nav>
+        </div>
+
+        <main class="mdl-layout__content">
+          <div class="myoo-section mdl-typography--text-center">
+            <div class="myoo-section">
+              <div class="mdl-card mdl-shadow--2dp mdl-color--green-300">
+          				<div class="mdl-card__title">
+          						<h2 class="mdl-card__title-text">Ingestion Logs</h2>
+          				</div>
+          				<div class="mdl-card__supporting-text">
+          						Retrieving logs using <a href="https://apidocs.ooyala.com/ingestion_log_api/index.html" class="mdl-color-text--deep-purple-700">Ingestion Log API</a>
+          				</div>
+          				<div class="mdl-card__actions mdl-card--border">
+          						<div id="mdl-table">
+          								<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable is-upgraded is-focused">
+          										<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+          												<i class="material-icons">search</i>
+          										</label>
+          										<div class="mdl-textfield__expandable-holder">
+          												<input class="mdl-textfield__input search" type="text" id="sample6">
+          												<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+          										</div>
+          								</div>
+
+          								<table id='mdl-table' class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          										<thead>
+          												<tr>
+          														<th class="mdl-data-table__cell--non-numeric sort" data-sort="file-name">File Name</th>
+          														<th class="sort" data-sort="file-type">File Type</th>
+          														<th class="sort" data-sort="status">Status</th>
+          												</tr>
+          										</thead>
+          										<tbody class="list">
+                                {% for log in results %}
+          												<tr>
+          														<td class="mdl-data-table__cell--non-numeric file-name">{{log.file_name}}</td>
+          														<td class="file-type">{{log.file_type}}</td>
+          														<td class="status">{{log.status}}</td>
+          												</tr>
+                                {% endfor %}
+          										</tbody>
+          								</table>
+          						</div>
+          				</div>
+          		</div>
+            </div>
+          </div>
+          <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+              <ul class="mdl-mini-footer--link-list">
+                <li><a href="http://support.ooyala.com/developers/documentation/concepts/pbv4_about.html">Player V4</a></li>
+              </ul>
+              <div class="mdl-logo">© 2017 OOYALA inc.</div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
